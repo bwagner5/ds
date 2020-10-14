@@ -4,7 +4,7 @@ ds is a simple CLI tool to compute statistics of datasets
 ## Installation
 
 ```
-brew install bwagner5/ds
+brew install bwagner5/wagner/ds
 ```
 
 ## Usage
