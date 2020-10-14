@@ -10,6 +10,20 @@ brew install bwagner5/ds
 ## Usage
 
 ```
+$ ds is a CLI tool to compute stats for data sets
+
+Usage:
+  ds [flags]
+
+Flags:
+  -f, --file string   Input file to compute statistics for
+  -h, --help          help for ds
+  -v, --version       the version
+```
+
+```
+$ ds -f file-with-numbers ... or
+$ cat file-with-numbers | ds ... or
 $ ds < file-with-numbers
 n:                   10
 mean:                5.5
