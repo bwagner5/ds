@@ -27,7 +27,7 @@ func main() {
 	args := userArgs{}
 	rootCmd := &cobra.Command{
 		Use:   "ds",
-		Short: "ds is a CLI tool to compute stats for data sets",
+		Short: "ds is a CLI tool to compute stats for datasets",
 		Run: func(cmd *cobra.Command, _ []string) {
 			if f, _ := cmd.Flags().GetBool(version); f {
 				printAndExitVersion()
