@@ -1,6 +1,9 @@
 # ds 🔢
 ds is a simple CLI tool to compute statistics of datasets
 
+[![Actions Status](https://github.com/bwagner5/ds/workflows/Go/badge.svg)](https://github.com/bwagner5/ds/actions)
+
+
 ## Installation
 
 ```
