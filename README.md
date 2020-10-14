@@ -10,7 +10,7 @@ brew install bwagner5/wagner/ds
 ## Usage
 
 ```
-$ ds is a CLI tool to compute stats for data sets
+$ ds is a CLI tool to compute stats for datasets
 
 Usage:
   ds [flags]
