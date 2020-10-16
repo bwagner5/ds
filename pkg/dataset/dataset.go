@@ -193,6 +193,9 @@ func (s *DataSet) CalcPercentile(p float64) float64 {
 	if index == float64(int64(index)) {
 		return s.Get(s.getIndexOfBucket(int64(index)))
 	}
+	if s.CompressedLen() == 1 {
+		return s.Get(0)
+	}
 	bucketIndex := s.getIndexOfBucket(int64(index))
 	adjSum := float64(0)
 	if bucketIndex >= s.CompressedLen()-1 {

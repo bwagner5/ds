@@ -183,6 +183,10 @@ func TestCalcStdDev(t *testing.T) {
 func TestCalcPercentile(t *testing.T) {
 	ds := dataset.New()
 	ds.Put(9.8)
+
+	h.Equals(t, 9.8, ds.CalcPercentile(0))
+	h.Equals(t, 9.8, ds.CalcPercentile(100))
+
 	ds.Put(10.1)
 	ds.Put(1.1)
 	ds.Put(0.5)
