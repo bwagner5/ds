@@ -152,12 +152,18 @@ func (s *DataSet) Sum() float64 {
 
 // CalcMean returns the mean of the dataset
 func (s *DataSet) CalcMean() float64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	return float64(s.Sum()) / float64(s.TotalCount())
 }
 
 // CalcMedian returns the median of the dataset
 func (s *DataSet) CalcMedian() float64 {
 	n := s.TotalCount()
+	if n == 0 {
+		return 0
+	}
 	medianIndex := float64(n) / float64(2)
 	if n%2 != 0 {
 		medianIndex = float64(n+1) / float64(2)
@@ -170,6 +176,9 @@ func (s *DataSet) CalcMedian() float64 {
 
 // CalcVariance returns the variance of the dataset
 func (s *DataSet) CalcVariance() float64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	mu := s.CalcMean()
 	sumOfDistanceToMu := float64(0)
 	for _, num := range s.SortedSlice() {
@@ -183,11 +192,17 @@ func (s *DataSet) CalcVariance() float64 {
 
 // CalcStdDev returns the standard deviation of the dataset
 func (s *DataSet) CalcStdDev() float64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	return math.Sqrt(s.CalcVariance())
 }
 
 // CalcPercentile returns the specified percentile of the dataset
 func (s *DataSet) CalcPercentile(p float64) float64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	index := (p / 100) * float64(s.TotalCount())
 	// whole number index
 	if index == float64(int64(index)) {
@@ -226,6 +241,9 @@ func (s *DataSet) getIndexOfBucket(i int64) int {
 
 // MaxFrequencyNum returns the value in the dataset with the highest modality
 func (s *DataSet) MaxFrequencyNum() float64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	max := int64(0)
 	maxNum := s.Get(0)
 	for _, num := range s.SortedSlice() {
@@ -240,6 +258,9 @@ func (s *DataSet) MaxFrequencyNum() float64 {
 
 // FindNumbersGreaterThan returns the count of numbers that are greater than the specified number
 func (s *DataSet) FindNumbersGreaterThan(n float64) int64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	greaterThanSum := int64(0)
 	for _, num := range s.SortedSlice() {
 		if num > n {
@@ -251,6 +272,9 @@ func (s *DataSet) FindNumbersGreaterThan(n float64) int64 {
 
 // FindNumbersLessThan returns the count of numbers that are less than the specified number
 func (s *DataSet) FindNumbersLessThan(n float64) int64 {
+	if s.TotalCount() == 0 {
+		return 0
+	}
 	lessThanSum := int64(0)
 	for _, num := range s.SortedSlice() {
 		if num < n {
