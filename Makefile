@@ -1,7 +1,7 @@
 BUILD_DIR ?= $(dir $(realpath -s $(firstword $(MAKEFILE_LIST))))/build
 VERSION ?= $(shell git describe --tags --always --dirty)
-GOOS ?= $(uname | tr '[:upper:]' '[:lower:]')
-GOARCH ?= $([[ uname -m = "x86_64" ]] && amd64 || arm64 )
+GOOS ?= $(shell uname | tr '[:upper:]' '[:lower:]')
+GOARCH ?= $(shell [[ `uname -m` = "x86_64" ]] && echo "amd64" || echo "arm64" )
 GOPROXY ?= "https://proxy.golang.org,direct"
 
 $(shell mkdir -p ${BUILD_DIR})
