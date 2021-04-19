@@ -25,4 +25,4 @@ jobs:
     - name: Build and Test
       run: make
       env:
-         GITHUB_TOKEN = ${{ secrets.GITHUB_TOKEN }}
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
